@@ -125,3 +125,27 @@ result3 = result1 - scalar_1
 result3
 
 # Print the arrays result1, result2, and result3.
+
+
+# Practice Exercise: Analyzing Weather Data
+# You are given a NumPy array temperatures that contains the daily temperature recordings (in Celsius) for a city over a period of one week. Another array precipitation contains the corresponding daily precipitation measurements (in millimeters) for the same period.
+
+import numpy as np
+
+temperatures = np.array([25.5, 28.2, 26.8, 29.1, 27.6, 24.9, 26.3])
+precipitation = np.array([0.0, 2.5, 0.0, 0.0, 10.2, 5.8, 1.2])
+# Your task is to perform the following operations:
+
+# Convert the temperatures from Celsius to Fahrenheit using the formula: Fahrenheit = (Celsius * 9/5) + 32.
+(temperatures * (9/5)) + 32
+# Calculate the average temperature and precipitation for the week.
+np.mean(temperatures)
+np.mean(precipitation)
+# Find the day with the highest temperature and the day with the lowest precipitation.
+np.max(temperatures)
+np.min(precipitation)
+# Determine the number of rainy days (precipitation > 0) using comparison and logical operations.
+np.count_nonzero(precipitation[precipitation > 0])
+np.sum([precipitation > 0])
+# Create a new array that contains the temperature values in Kelvin (Kelvin = Celsius + 273.15) for days with precipitation greater than 5 millimeters.
+temperatures[precipitation > 5] + 273.15
