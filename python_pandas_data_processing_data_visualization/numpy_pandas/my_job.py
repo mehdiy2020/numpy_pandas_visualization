@@ -149,3 +149,54 @@ np.count_nonzero(precipitation[precipitation > 0])
 np.sum([precipitation > 0])
 # Create a new array that contains the temperature values in Kelvin (Kelvin = Celsius + 273.15) for days with precipitation greater than 5 millimeters.
 temperatures[precipitation > 5] + 273.15
+
+# You are given two NumPy arrays sales_2021 and sales_2022 that contain the monthly sales data for a company over the past two years. Each array has shape (3, 4), representing sales data for 3 products over 4 quarters.
+
+import numpy as np
+
+print(np.__file__)
+
+sales_2021 = np.array([[100, 120, 140, 160],
+                       [200, 220, 240, 260],
+                       [300, 320, 340, 360]])
+
+sales_2022 = np.array([[110, 130, 150, 170],
+                       [210, 230, 250, 270],
+                       [310, 330, 350, 370]])
+# Your task is to perform the following operations:
+
+# Combine the sales data for both years into a single array using vertical stacking.
+np.vstack([sales_2021, sales_2022])
+# Reshape the combined sales data into a 1D array.
+np.vstack([sales_2021, sales_2022]).reshape(-1)
+# Split the combined sales data into separate arrays for each product using horizontal splitting.
+np.vsplit(np.concatenate((sales_2021, sales_2022), axis=1),3)
+np.vsplit(np.vstack([sales_2021, sales_2022]),3)
+
+# Create a new array that repeats the sales data for each year twice using tiling.
+np.tile(np.vstack([sales_2021, sales_2022]), 2)
+# Calculate the total sales for each year using flattening and summation.
+np.sum(np.ravel([sales_2021]))
+np.sum(np.ravel([sales_2022]))
+
+
+# You are given a NumPy array grades that contains the grades of a group of students in a course. Your task is to perform the following operations:
+
+import numpy as np
+
+grades = np.array([85, 72, 90, 68, 77, 82, 92, 60, 55, 75, 88, 80, 95, 78, 65])
+
+# Sort the grades in ascending order.
+np.sort(grades)
+# Find the top 5 grades using array slicing.
+np.sort(grades)[::-1][0:5]
+np.sort(grades)[-5:]
+# Determine the number of students who passed the course (grade >= 60).
+mask = grades >= 60
+np.sum(mask)
+np.count_nonzero(grades[mask])
+
+# Identify the students who scored below the mean grade.
+np.sum(grades < np.mean(grades))
+# Find the unique grades in the array.
+np.unique(grades)
